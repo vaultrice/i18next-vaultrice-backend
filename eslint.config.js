@@ -5,7 +5,7 @@ export default [
   // — your neostandard base —
   ...neostandard({
     ts: true,
-    ignores: ['dist/**/*', 'types/**/*', 'docs/**/*']
+    ignores: ['dist/**/*', 'types/**/*', 'docs/**/*', 'example/**/*']
   }),
 
   // — add import-plugin + import/no-unresolved —
