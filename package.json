@@ -1,0 +1,69 @@
+{
+  "name": "i18next-vaultrice-backend",
+  "description": "This is an i18next backend for loading translations from Vaultrice.",
+  "globalName": "I18nextVaultriceBackend",
+  "version": "0.9.0",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": "./dist/umd/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./cjs": {
+      "types": "./types/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    },
+    "./esm": {
+      "types": "./types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "scripts": {
+    "build:deno": "rm -rf dist/deno && cp -r src dist/deno && node scripts/add-ts-extension.js dist/deno",
+    "build": "rm -rf dist && rollup -c && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json && rm -rf types && tsc -d --declarationDir types --declarationMap --emitDeclarationOnly && npm run build:deno",
+    "lint": "eslint .",
+    "test": "npm run lint",
+    "test:watch": "npm run lint && vitest",
+    "preversion": "npm run test && npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "author": "The Vaultrice Team <support@vaultrice.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-terser": "0.4.4",
+    "@types/node": "24.2.0",
+    "eslint": "9.32.0",
+    "eslint-plugin-import": "2.32.0",
+    "neostandard": "0.12.2",
+    "rollup": "4.46.2",
+    "rollup-plugin-typescript2": "0.36.0",
+    "typescript": "5.9.2",
+    "vitest": "3.2.4"
+  },
+  "keywords": [
+    "vaultrice",
+    "storage",
+    "i18next",
+    "plugin",
+    "backend",
+    "caching",
+    "cache"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaultrice/i18next-vaultrice-backend.git"
+  },
+  "homepage": "https://www.vaultrice.com",
+  "bugs": {
+    "url": "https://github.com/vaultrice/i18next-vaultrice-backend/issues"
+  },
+  "dependencies": {
+    "@vaultrice/sdk": "0.9.4"
+  }
+}
