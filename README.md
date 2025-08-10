@@ -98,7 +98,7 @@ The `id` option determines **which Vaultrice Durable Object** your translations 
 
 #### Performance & Latency Notes
 
-* **Durable Object Location**: Vaultrice places the Durable Object’s “home” in the region closest to where it was first created. All writes go to that home location; reads can be served from edge replicas when possible.
+* **Durable Object Location**: Vaultrice places the Durable Object’s “home” in the region closest to where it was **first** created. All writes go to that home location; reads can be served from edge replicas when possible.
 * **Global IDs**: Maximize cache hits and minimize storage duplication, but may incur slightly higher latency for faraway users on a cold cache.
 * **Regional IDs**: Keep requests and data in one jurisdiction, lowering legal risk and improving latency for local users. The developer must decide the correct region/jurisdiction ID based on the user’s location.
 * **Per-User IDs**: Provide maximum isolation; latency depends on where the object was first instantiated for that user.
