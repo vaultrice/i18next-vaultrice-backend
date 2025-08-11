@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - not released yet
 
+## [0.9.3](https://github.com/vaultrice/i18next-vaultrice-backend/compare/v0.9.2...v0.9.3) - 2025-08-11
+
+- improve onNonLocalStorageCreated usage
+
 ## [0.9.2](https://github.com/vaultrice/i18next-vaultrice-backend/compare/v0.9.1...v0.9.2) - 2025-08-11
 
 - introduce onNonLocalStorageCreated

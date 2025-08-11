@@ -95,15 +95,15 @@ This allows you to customize or monitor the storage layer, for example to update
 
 **Example:**
 ```js
-let usedNls;
 const backendOptions = {
   credentials: { /* ... */ },
   onNonLocalStorageCreated: (nls) => {
-    usedNls = nls;
+    nls.onAccessTokenExpiring(() => {
+      // get new access token from your backend...
+      nls.useAccessToken(newAccessToken);
+    });
   }
 };
-// Later, when you need to refresh the token:
-usedNls.useAccessToken(newAccessToken);
 ```
 
 ### Choosing Your `id` Scope
