@@ -71,9 +71,10 @@ Options can be passed in by setting `options.backend` in the `i18next.init` func
 ```js
 {
   credentials: {
-    apiKey: string,
-    apiSecret: string,
-    projectId: string
+    projectId: string,
+    apiKey?: string,
+    apiSecret?: string,
+    accessToken?: string // in combination with onNonLocalStorageCreated (see below)
   },
   id?: string,
   class?: string,
@@ -86,6 +87,24 @@ Options can be passed in by setting `options.backend` in the `i18next.init` func
 ```
 
 **All `@vaultrice/sdk` options are also available**, meaning developers can enable features such as object ID verification, end-to-end encryption, logging levels, and other advanced capabilities.
+
+#### `onNonLocalStorageCreated`
+
+A callback invoked when the Vaultrice NonLocalStorage instance is created.  
+This allows you to customize or monitor the storage layer, for example to update the access token dynamically.
+
+**Example:**
+```js
+let usedNls;
+const backendOptions = {
+  credentials: { /* ... */ },
+  onNonLocalStorageCreated: (nls) => {
+    usedNls = nls;
+  }
+};
+// Later, when you need to refresh the token:
+usedNls.useAccessToken(newAccessToken);
+```
 
 ### Choosing Your `id` Scope
 

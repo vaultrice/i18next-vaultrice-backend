@@ -24,6 +24,21 @@ export interface VaultriceBackendOptions {
     accessToken?: string
   }
   /**
+   * Callback invoked when a non-local storage instance is created.
+   * This can be used to customize or monitor the storage layer used for translations, such as using
+   * a new accessToken. The callback receives the created {@link NonLocalStorage}
+   * instance as its argument.
+   * @example:
+   * let usedNls;
+   * onNonLocalStorageCreated((nls) => {
+   *   usedNls = nls;
+   * });
+   * // later, when token needs to be refreshed:
+   * // get new token from your backend
+   * usedNls.useAccessToken(newAccessToken);
+   */
+  onNonLocalStorageCreated(nls: NonLocalStorage): unknown
+  /**
    * The ID of the Vaultrice object to use. Can be shared globally, or be
    * user/region-specific for data locality.
    * @default 'shared-i18next-resources'
@@ -146,6 +161,10 @@ class VaultriceBackend {
     // Pre-fetch encryption settings if encryption is enabled.
     if (this.options.passphrase || this.options.getEncryptionHandler) {
       this.nls.getEncryptionSettings()
+    }
+
+    if (typeof this.options.onNonLocalStorageCreated === 'function') {
+      this.options.onNonLocalStorageCreated(this.nls)
     }
 
     // Set up polling interval if configured.
