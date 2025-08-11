@@ -18,9 +18,10 @@ export interface VaultriceBackendOptions {
    * Vaultrice credentials required to connect.
    */
   credentials: {
-    apiKey: string
-    apiSecret: string
     projectId: string
+    apiKey?: string
+    apiSecret?: string
+    accessToken?: string
   }
   /**
    * The ID of the Vaultrice object to use. Can be shared globally, or be

@@ -47,9 +47,10 @@ i18next
       backendOptions: [
         {
           credentials: {
+            projectId: 'YOUR_VAULTRICE_PROJECT_ID'
             apiKey: 'YOUR_VAULTRICE_API_KEY',
             apiSecret: 'YOUR_VAULTRICE_API_SECRET',
-            projectId: 'YOUR_VAULTRICE_PROJECT_ID'
+            // or accessToken: 'your short-living access-token'
           },
           class: 'translations-v1.1'
         },
