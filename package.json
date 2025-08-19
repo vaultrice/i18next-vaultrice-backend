@@ -37,11 +37,11 @@
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-terser": "0.4.4",
-    "@types/node": "24.2.1",
+    "@types/node": "24.3.0",
     "eslint": "9.33.0",
     "eslint-plugin-import": "2.32.0",
     "neostandard": "0.12.2",
-    "rollup": "4.46.2",
+    "rollup": "4.46.3",
     "rollup-plugin-typescript2": "0.36.0",
     "typescript": "5.9.2",
     "vitest": "3.2.4"
@@ -64,6 +64,6 @@
     "url": "https://github.com/vaultrice/i18next-vaultrice-backend/issues"
   },
   "dependencies": {
-    "@vaultrice/sdk": "0.9.11"
+    "@vaultrice/sdk": "0.9.12"
   }
 }

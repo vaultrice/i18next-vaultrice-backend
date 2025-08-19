@@ -1,5 +1,5 @@
 import { NonLocalStorage } from '@vaultrice/sdk'
-import type { KeyDerivationOptions, EncryptionHandler, EncryptionSettings, LogLevel } from '@vaultrice/sdk'
+import type { Credentials, KeyDerivationOptions, EncryptionHandler, EncryptionSettings, LogLevel } from '@vaultrice/sdk'
 
 /**
  * Default options for the backend.
@@ -17,12 +17,7 @@ export interface VaultriceBackendOptions {
   /**
    * Vaultrice credentials required to connect.
    */
-  credentials: {
-    projectId: string
-    apiKey?: string
-    apiSecret?: string
-    accessToken?: string
-  }
+  credentials: Credentials
   /**
    * Callback invoked when a non-local storage instance is created.
    * This can be used to customize or monitor the storage layer used for translations, such as using

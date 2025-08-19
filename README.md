@@ -74,7 +74,8 @@ Options can be passed in by setting `options.backend` in the `i18next.init` func
     projectId: string,
     apiKey?: string,
     apiSecret?: string,
-    accessToken?: string // in combination with onNonLocalStorageCreated (see below)
+    accessToken?: string, // in combination with onNonLocalStorageCreated (see below)
+    getAccessToken?: () => Promise<string> // preferred
   },
   id?: string,
   class?: string,
@@ -98,6 +99,7 @@ This allows you to customize or monitor the storage layer, for example to update
 const backendOptions = {
   credentials: { /* ... */ },
   onNonLocalStorageCreated: (nls) => {
+    // this is not necessary if using the getAccessToken provider function via credentials
     nls.onAccessTokenExpiring(() => {
       // get new access token from your backend...
       nls.useAccessToken(newAccessToken);
