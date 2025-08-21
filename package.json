@@ -64,6 +64,6 @@
     "url": "https://github.com/vaultrice/i18next-vaultrice-backend/issues"
   },
   "dependencies": {
-    "@vaultrice/sdk": "0.9.15"
+    "@vaultrice/sdk": "0.9.16"
   }
 }
