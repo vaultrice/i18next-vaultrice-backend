@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - not released yet
 
+## [0.9.12](https://github.com/vaultrice/i18next-vaultrice-backend/compare/v0.9.11...v0.9.12) - 2025-08-25
+
+- update dependencies
+
 ## [0.9.11](https://github.com/vaultrice/i18next-vaultrice-backend/compare/v0.9.10...v0.9.11) - 2025-08-21
 
 - update dependencies
